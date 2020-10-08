@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,8 +21,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         //Define EditText object from the actual editText from the activity_main.xml
         EditText editText = (EditText) findViewById(R.id.editText);
-
+        // Converts message written in text box to string
         String message = editText.getText().toString();
+        // This is a pair of values that i do not understand yet
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
