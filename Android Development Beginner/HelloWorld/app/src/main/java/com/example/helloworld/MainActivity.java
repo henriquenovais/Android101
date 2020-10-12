@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,18 +14,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        TextView txtMessage = findViewById(R.id.txtMessage);
-        TextView txtInput = findViewById(R.id.txtInput);
     }
 
 
     public void onBtnClick(View view) {
-
+        // Get display message view information
         TextView txtMessage = findViewById(R.id.txtMessage);
-        TextView txtInput = findViewById(R.id.txtInput);
-
-        String txt = (String) txtInput.getText();
-        txtMessage.setText(txt);
+        // Get input text view information
+        EditText txtInput = findViewById(R.id.txtInput);
+        // Display input text into txtMessage object:
+        txtMessage.setText(txtInput.getText().toString());
     }
 }
