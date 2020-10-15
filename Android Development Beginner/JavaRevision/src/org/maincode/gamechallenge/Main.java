@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class Main {
     static String gamePlay() {
         Scanner sc2 = new Scanner(System.in);
-        String result = "";
+        String result = "" +
+                "";
         int playerGuess;
         int gameOver = 0;
         boolean gameplayLoop = true;
