@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JavaRevision.iml" filepath="$PROJECT_DIR$/JavaRevision.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaSyntaxChallenge.iml" filepath="$PROJECT_DIR$/JavaSyntaxChallenge.iml" />
     </modules>
   </component>
 </project>
