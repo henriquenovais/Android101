@@ -9,7 +9,14 @@ public class Database {
         private static ArrayList<Contact> contacts = new ArrayList<>();
 
         public static void addContact(Contact contact) {
-            contacts.add(contact);
+            ContactList.add(contact);
+        }
+
+        public static void displayContactList() {
+
+            String firstName;
+            String lastName;
+
         }
     }
 
