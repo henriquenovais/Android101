@@ -4,21 +4,7 @@ import java.util.ArrayList;
 
 public class Database {
 
-    public static class ContactList {
-
-        private static ArrayList<Contact> contacts = new ArrayList<>();
-
-        public static void addContact(Contact contact) {
-            ContactList.add(contact);
-        }
-
-        public static void displayContactList() {
-
-            String firstName;
-            String lastName;
-
-        }
-    }
+    public static ArrayList<Contact> ContactList = new ArrayList<>();
 
     public static class Contact {
 
