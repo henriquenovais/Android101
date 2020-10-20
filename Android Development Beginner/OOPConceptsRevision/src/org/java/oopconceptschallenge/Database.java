@@ -50,5 +50,45 @@ public class Database {
         }
     }
 
+    public static ArrayList<Message> messageList = new ArrayList<>();
+
+    public static class Message {
+
+        private String text;
+        private int senderPhoneNumber;
+        private boolean received;
+
+        public Message(String text, int senderPhoneNumber, boolean received) {
+            this.text = text;
+            this.senderPhoneNumber = senderPhoneNumber;
+            this.received = received;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public void setText(String text) {
+            this.text = text;
+        }
+
+        public int getSenderPhoneNumber() {
+            return senderPhoneNumber;
+        }
+
+        public void setSenderPhoneNumber(int senderPhoneNumber) {
+            this.senderPhoneNumber = senderPhoneNumber;
+        }
+
+        public boolean isReceived() {
+            return received;
+        }
+
+        public void setReceived(boolean received) {
+            this.received = received;
+        }
+
+    }
+
 
 }
