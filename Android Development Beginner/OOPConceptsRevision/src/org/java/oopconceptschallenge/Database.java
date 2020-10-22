@@ -4,15 +4,13 @@ import java.util.ArrayList;
 
 public class Database {
 
-    public static ArrayList<Contact> ContactList = new ArrayList<>();
-
     public static class Contact {
 
         private String firstName;
         private String lastName;
-        private int phoneNumber;
+        private long phoneNumber;
 
-        public Contact(String firstName, String lastName, int phoneNumber) {
+        public Contact(String firstName, String lastName, long phoneNumber) {
             this.firstName = firstName;
             this.lastName = lastName;
             this.phoneNumber = phoneNumber;
@@ -34,11 +32,11 @@ public class Database {
             this.lastName = lastName;
         }
 
-        public int getPhoneNumber() {
+        public long getPhoneNumber() {
             return phoneNumber;
         }
 
-        public void setPhoneNumber(int phoneNumber) {
+        public void setPhoneNumber(long phoneNumber) {
             this.phoneNumber = phoneNumber;
         }
 
@@ -50,15 +48,32 @@ public class Database {
         }
     }
 
+    public static class ContactList extends ArrayList<Contact>{
+
+        Contact Juninho = new Contact("Junior", "Silveira", 02589510L);
+        Contact Julinha = new Contact("Julia", "Santa", 03697415L);
+        Contact Pedro = new Contact("Pedro", "Costa", 78942356L);
+        Contact Silvia = new Contact("Silvia", "Santana", 15874203L);
+
+        //Contacts being added in order to properly test the ContactList
+        public ContactList() {
+            ContactList.add(Juninho);
+            ContactList.add(Julinha);
+            ContactList.add(Pedro);
+            ContactList.add(Silvia);
+        }
+
+    }
+
     public static ArrayList<Message> messageList = new ArrayList<>();
 
     public static class Message {
 
         private String text;
-        private int senderPhoneNumber;
+        private long senderPhoneNumber;
         private boolean received;
 
-        public Message(String text, int senderPhoneNumber, boolean received) {
+        public Message(String text, long senderPhoneNumber, boolean received) {
             this.text = text;
             this.senderPhoneNumber = senderPhoneNumber;
             this.received = received;
@@ -72,11 +87,11 @@ public class Database {
             this.text = text;
         }
 
-        public int getSenderPhoneNumber() {
+        public long getSenderPhoneNumber() {
             return senderPhoneNumber;
         }
 
-        public void setSenderPhoneNumber(int senderPhoneNumber) {
+        public void setSenderPhoneNumber(long senderPhoneNumber) {
             this.senderPhoneNumber = senderPhoneNumber;
         }
 

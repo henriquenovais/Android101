@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Database.Contact Henrique = new Database.Contact("Henrique", "Oliveira", 99999999);
-        Database.ContactList.add(Henrique);
+
         Scanner Sc = new Scanner(System.in);
         int menu = 0;
         boolean loopMenu = true;
