@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Database {
 
-    public static class Contact {
+    public class Contact {
 
         private String firstName;
         private String lastName;
@@ -48,19 +48,29 @@ public class Database {
         }
     }
 
-    public static class ContactList extends ArrayList<Contact>{
+    public class ContactList extends ArrayList<Contact>{
 
-        Contact Juninho = new Contact("Junior", "Silveira", 02589510L);
-        Contact Julinha = new Contact("Julia", "Santa", 03697415L);
-        Contact Pedro = new Contact("Pedro", "Costa", 78942356L);
-        Contact Silvia = new Contact("Silvia", "Santana", 15874203L);
+        Contact Juninho = new Contact("Junior", "Silveira", 95123654L);
+        Contact Julinha = new Contact("Julia", "Santa", 95148554L);
+        Contact Pedro = new Contact("Pedro", "Costa", 12345678L);
+        Contact Silvia = new Contact("Silvia", "Santana", 62587463L);
 
         //Contacts being added in order to properly test the ContactList
         public ContactList() {
-            ContactList.add(Juninho);
-            ContactList.add(Julinha);
-            ContactList.add(Pedro);
-            ContactList.add(Silvia);
+            ContactList.super.add(Juninho);
+            ContactList.super.add(Julinha);
+            ContactList.super.add(Pedro);
+            ContactList.super.add(Silvia);
+        }
+
+        public void printContacts() {
+
+            Contact Cont;
+
+            for (int i = 0; i < ContactList.super.size() ; i++) {
+                Cont = ContactList.super.get(i);
+                Cont.printContact();
+            }
         }
 
     }

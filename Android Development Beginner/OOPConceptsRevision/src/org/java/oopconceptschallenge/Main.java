@@ -55,7 +55,7 @@ public class Main {
 
         switch (menu) {
             case 1:
-                showAllContacts();
+                Database.ContactList.printContacts();
                 break;
             case 2:
                 menuAddContact();
