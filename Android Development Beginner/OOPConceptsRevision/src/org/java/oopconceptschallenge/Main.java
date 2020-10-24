@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Database Db = new Database();
+        Database.ContactList Contacts;
+        Contacts = Db.new ContactList();
+
 
         Scanner Sc = new Scanner(System.in);
         int menu = 0;
@@ -21,7 +25,7 @@ public class Main {
 
             switch (menu) {
                 case 1:
-                    menuManageContacts();
+                    menuManageContacts(Contacts);
                     break;
                 case 2:
                     menuMessages();
@@ -37,7 +41,7 @@ public class Main {
         }
     }
 
-    public static void menuManageContacts() {
+    public static void menuManageContacts(Database.ContactList Contacts) {
 
         Scanner Sc = new Scanner(System.in);
         int menu = 0;
@@ -55,10 +59,10 @@ public class Main {
 
         switch (menu) {
             case 1:
-                Database.ContactList.printContacts();
+                Contacts.printContacts();
                 break;
             case 2:
-                menuAddContact();
+                Contacts.addContact();
                 break;
             case 3:
                 menuSearchForContact();
