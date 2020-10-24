@@ -65,7 +65,10 @@ public class Main {
                 Contacts.addContact();
                 break;
             case 3:
-                menuSearchForContact();
+                System.out.println("Input the first name of the contact you want to search for: ");
+                String search;
+                search = Sc.nextLine();
+                Contacts.searchByFirstName(search);
                 break;
             case 4:
                 menuDeleteContact();

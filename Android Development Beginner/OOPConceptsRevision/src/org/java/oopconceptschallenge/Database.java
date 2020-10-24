@@ -98,12 +98,28 @@ public class Database {
             New.printContact();
         }
 
-        public Contact searchByFirstName() {
+        public void searchByFirstName(String firstName) {
             int sz;
-            Contact Res = new Contact();
+            Contact Res;
             sz = this.size();
+            boolean flag = false;
+            int index = 0;
 
-            for (int i = 0; )
+            for (int i = 0; i < sz; i++) {
+                if (firstName == this.get(i).firstName) {
+                    flag = true;
+                    index = i;
+                    break;
+                }
+            }
+
+            if (flag == true) {
+                Res = this.get(index);
+                System.out.println("Contact found!");
+                Res.printContact();
+            } else {
+                System.out.println("Contact not found.");
+            }
         }
 
     }
