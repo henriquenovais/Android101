@@ -98,35 +98,42 @@ public class Database {
             New.printContact();
         }
 
-        public void searchByFirstName(String firstName) {
+        public int searchByFirstName(String firstName) {
             int sz;
             Contact Res;
             sz = this.size();
             boolean flag = false;
-            int index = 0;
+            int index = -1;
 
             for (int i = 0; i < sz; i++) {
-                if (firstName == this.get(i).firstName) {
-                    flag = true;
-                    index = i;
-                    break;
-                }
+                if (firstName.equals(this.get(i).firstName)) {
+                        flag = true;
+                        index = i;
+                        break;
+                    }
             }
 
             if (flag == true) {
-                Res = this.get(index);
-                System.out.println("Contact found!");
-                Res.printContact();
+                return index;
             } else {
+                return -1;
+            }
+        }
+
+        public void deleteContact(String firstName) {
+            int index = searchByFirstName(firstName);
+            if (index == -1) {
                 System.out.println("Contact not found.");
+            } else {
+                ContactList.super.get(index).printContact();
+                System.out.println("Contact named " + firstName + " was removed.");
+                ContactList.super.remove(index);
             }
         }
 
     }
 
-    public static ArrayList<Message> messageList = new ArrayList<>();
-
-    public static class Message {
+    public class Message {
 
         private String text;
         private long senderPhoneNumber;
@@ -164,5 +171,8 @@ public class Database {
 
     }
 
+    public class MessageBox extends ArrayList<Message> {
+
+    }
 
 }

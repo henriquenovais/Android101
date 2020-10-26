@@ -5,9 +5,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Database Db = new Database();
-        Database.ContactList Contacts;
-        Contacts = Db.new ContactList();
-
+        Database.ContactList Contacts = Db.new ContactList();
+        Database.MessageBox Inbox = Db.new MessageBox();
 
         Scanner Sc = new Scanner(System.in);
         int menu = 0;
@@ -46,6 +45,7 @@ public class Main {
         Scanner Sc = new Scanner(System.in);
         int menu = 0;
         boolean loopMenu = true;
+        String search;
         while(loopMenu){
 
         System.out.println("Welcome to the contact list and messaging app !");
@@ -66,12 +66,19 @@ public class Main {
                 break;
             case 3:
                 System.out.println("Input the first name of the contact you want to search for: ");
-                String search;
-                search = Sc.nextLine();
-                Contacts.searchByFirstName(search);
+                search = Sc.next();
+                int index = Contacts.searchByFirstName(search);
+                if (index == -1) {
+                    System.out.println("Contact not found.");
+                } else {
+                    System.out.println("Contact found!");
+                    Contacts.get(index).printContact();
+                }
                 break;
             case 4:
-                menuDeleteContact();
+                System.out.println("Input the first name of the contact you want to delete: ");
+                search = Sc.next();
+                Contacts.deleteContact(search);
                 break;
             case 5:
                 System.out.println("Returning to previous menu");
