@@ -51,10 +51,10 @@ public class Database {
 
     public class ContactList extends ArrayList<Contact>{
 
-        Contact Juninho = new Contact("Junior", "Silveira", 95123654L);
-        Contact Julinha = new Contact("Julia", "Santa", 95148554L);
-        Contact Pedro = new Contact("Pedro", "Costa", 12345678L);
-        Contact Silvia = new Contact("Silvia", "Santana", 62587463L);
+        private Contact Juninho = new Contact("Junior", "Silveira", 95123654L);
+        private Contact Julinha = new Contact("Julia", "Santa", 95148554L);
+        private Contact Pedro = new Contact("Pedro", "Costa", 12345678L);
+        private Contact Silvia = new Contact("Silvia", "Santana", 62587463L);
 
         private Scanner Sc = new Scanner(System.in);
 
@@ -137,12 +137,12 @@ public class Database {
 
         private String text;
         private long senderPhoneNumber;
-        private boolean received;
+        private long receiverPhoneNumber;
 
-        public Message(String text, long senderPhoneNumber, boolean received) {
+        public Message(String text, long senderPhoneNumber, long receiverPhoneNumber) {
             this.text = text;
             this.senderPhoneNumber = senderPhoneNumber;
-            this.received = received;
+            this.receiverPhoneNumber = receiverPhoneNumber;
         }
 
         public String getText() {
@@ -161,18 +161,74 @@ public class Database {
             this.senderPhoneNumber = senderPhoneNumber;
         }
 
-        public boolean isReceived() {
-            return received;
+        public long getReceiverPhoneNumber() {
+            return receiverPhoneNumber;
         }
 
-        public void setReceived(boolean received) {
-            this.received = received;
+        public void setReceiverPhoneNumber(long receiverPhoneNumber) {
+            this.receiverPhoneNumber = receiverPhoneNumber;
         }
-
     }
 
     public class MessageBox extends ArrayList<Message> {
 
+        private long userPhoneNumber = 99999999L;
+        private Scanner Sc = new Scanner(System.in);
+
+        private Message msg1 = new Message("Hi, how are you doing?", 123486789L, userPhoneNumber);
+        private Message msg2 = new Message("Hey, whats up", 7535125L, userPhoneNumber);
+        private Message msg3 = new Message("Click here to get a coupon!", 123589546L, userPhoneNumber);
+        private Message msg4 = new Message("Hey dude,whats up",62587463L, userPhoneNumber);
+        private Message msg5 = new Message("We good man",userPhoneNumber, 62587463L);
+
+        public MessageBox() {
+            MessageBox.super.add(msg1);
+            MessageBox.super.add(msg2);
+            MessageBox.super.add(msg3);
+            MessageBox.super.add(msg4);
+            MessageBox.super.add(msg5);
+        }
+
+        public long getUserPhoneNumber() {
+            return userPhoneNumber;
+        }
+
+        public void setUserPhoneNumber(long userPhoneNumber) {
+            this.userPhoneNumber = userPhoneNumber;
+        }
+
+        public void showAllMessages() {
+            System.out.println("Message list:");
+            for (int i = 0; i < MessageBox.super.size(); i++) {
+                if(MessageBox.super.get(i).senderPhoneNumber != this.userPhoneNumber){
+                    System.out.println("Message from: " + MessageBox.super.get(i).senderPhoneNumber);
+                    System.out.println("Message to: You");
+                    System.out.println("Text: " + MessageBox.super.get(i).text);
+                    System.out.println("");
+                } else {
+                    System.out.println("Message from: You");
+                    System.out.println("Message to: " + MessageBox.super.get(i).receiverPhoneNumber);
+                    System.out.println("Text: " + MessageBox.super.get(i).text);
+                    System.out.println("");
+                }
+            }
+        }
+
+        public void sendMessage(ContactList Contacts) {
+            System.out.println("Type the name of the first name of the contact you want to send a message to:");
+            String contName = Sc.next();
+            Sc.nextLine();
+            int index = Contacts.searchByFirstName(contName);
+            if (index != -1) {
+                System.out.println("Type the text you want to send: ");
+                String text = Sc.nextLine();
+                Message msg = new Message(text, this.getUserPhoneNumber(), Contacts.get(index).phoneNumber);
+                MessageBox.super.add(msg);
+                System.out.println("Message sent!");
+            } else {
+                System.out.println("Invalid contact.");
+            }
+        }
     }
 
 }

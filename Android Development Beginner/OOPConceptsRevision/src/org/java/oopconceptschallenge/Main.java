@@ -27,7 +27,7 @@ public class Main {
                     menuManageContacts(Contacts);
                     break;
                 case 2:
-                    menuMessages();
+                    menuMessages(Inbox, Contacts);
                     break;
                 case 3:
                     System.out.println("Exiting application");
@@ -91,7 +91,7 @@ public class Main {
         }
     }
 
-    public static void menuMessages() {
+    public static void menuMessages(Database.MessageBox Inbox, Database.ContactList Contacts) {
 
         Scanner Sc = new Scanner(System.in);
         int menu = 0;
@@ -108,10 +108,10 @@ public class Main {
 
             switch (menu) {
                 case 1:
-                    showAllMessages();
+                    Inbox.showAllMessages();
                     break;
                 case 2:
-                    sendMessage();
+                    Inbox.sendMessage(Contacts);
                     break;
                 case 3:
                     System.out.println("Returning to previous menu");
