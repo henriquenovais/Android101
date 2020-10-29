@@ -14,11 +14,16 @@
         android:textSize="40sp"
         android:textColor="@color/purple_700"
         android:layout_centerInParent="true"
-        android:id="txtWelcome"
-        />
+        android:id="@+id/TextViewWelcome"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Say Hello"/>
+        android:text="Say Hello"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/TextViewWelcome"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#000000"
+        android:onClick="onHelloButtonClicked"/>
+
 </RelativeLayout>
